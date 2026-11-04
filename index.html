@@ -1,0 +1,1787 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-SPAMSHIELD — Full AI Security Operations Platform</title>
+    <meta name="description" content="AI-SPAMSHIELD is a unified multi-channel cybersecurity platform for detecting, explaining, and neutralizing SMS smishing, email phishing, malicious URLs, scam advertisements, and untrusted documents with real-time Gemini AI intelligence." />
+    <meta property="og:title" content="AI-SPAMSHIELD — Full AI Security Operations Platform" />
+    <meta property="og:description" content="Unified multi-channel cybersecurity detection system for SMS, email phishing, malicious URLs, scams, and fraudulent ads with automated real-time scanning." />
+    
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Core Application CSS -->
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <!-- Interactive Nano-Particle Cyber Matrix Canvas -->
+    <canvas id="nano-cyber-canvas" class="nano-cyber-canvas" aria-hidden="true"></canvas>
+
+    <div class="cyber-container">
+      
+      <!-- ==========================================================================
+           SOC Header Bar
+           ========================================================================== -->
+      <header class="soc-header" role="banner">
+        <div class="brand-zone">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <h1>AI-SPAM<span>SHIELD</span></h1>
+            <div class="brand-tagline">Detect. Explain. Protect. // AI Security Operations Center</div>
+          </div>
+        </div>
+
+        <div class="header-status-zone">
+          <div class="soc-live-badge" title="SOC Telemetry Stream Active">
+            <span class="pulse-point"></span>
+            <span>SOC ONLINE</span>
+          </div>
+
+          <!-- ShieldBot AI Companion Activation Button -->
+          <button class="ai-status-indicator" id="activate-ai-btn" title="Toggle ShieldBot AI Companion" aria-label="Activate or Standby ShieldBot AI">
+            [ ACTIVATE AI ]
+          </button>
+
+          <!-- Emergency Stop Agent Button -->
+          <button type="button" class="btn-emergency-stop" id="btn-emergency-stop-topbar" title="Emergency Stop all ShieldBot Agent actions">
+            🛑 <span>STOP SHIELDBOT</span>
+          </button>
+
+          <!-- Audio FX Toggle -->
+          <button class="btn-header" id="sound-toggle-btn" title="Toggle Audio FX Synthesis" aria-label="Toggle Sound Effects">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <span>Audio: ON</span>
+          </button>
+
+          <!-- Demo Mode Toggle Button -->
+          <button class="btn-header" id="demo-mode-toggle-btn" title="Toggle Demo Presentation Mode" aria-label="Toggle Demo Mode">
+            <span class="pulse-point" style="background: #f59e0b;" id="demo-mode-dot"></span>
+            <span id="demo-mode-label">DEMO: OFF</span>
+          </button>
+
+          <!-- Operator Profile & Clearance Pill -->
+          <div class="operator-profile-pill" id="operator-profile-zone" title="Active Operator Clearance">
+            <div class="operator-avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="operator-details">
+              <span class="operator-name" id="operator-name-display">Tharani</span>
+              <span class="operator-badge-tag" id="operator-badge-display">AGENT-TH-01</span>
+            </div>
+            <button class="btn-logout" id="logout-btn" title="Log out and lock terminal" aria-label="Log out">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span>LOGOUT</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ==========================================================================
+           SOC Main Layout: Sidebar + View Container
+           ========================================================================== -->
+      <div class="soc-app-layout">
+        
+        <!-- Left Navigation Sidebar -->
+        <aside class="soc-sidebar" role="navigation" aria-label="SOC Navigation">
+          <div class="sidebar-title">SOC PLATFORM MODULES</div>
+          <nav class="soc-nav-menu">
+            <button type="button" class="soc-nav-item is-active" data-view="dashboard">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Dashboard</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="scanner">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>Threat Scanner</span>
+              <span class="nav-badge">LIVE</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="gmail">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Gmail Security</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="messages" id="nav-messages-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+              <span>Phone & Laptop Messages</span>
+              <span class="nav-badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">SYNC</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="history">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Threat History</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="analytics">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+              <span>Analytics</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="assistant">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>ShieldBot AI</span>
+              <span class="nav-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">AGENT</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="guardian" id="nav-guardian-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+              <span>Guardian AI</span>
+              <span class="nav-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171;" id="nav-guardian-badge">WATCH</span>
+            </button>
+            <button type="button" class="soc-nav-item" data-view="settings">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+              <span>Settings</span>
+            </button>
+          </nav>
+
+          <div class="sidebar-status-card">
+            <div class="status-row">
+              <span>Sentinel:</span>
+              <span id="sb-sentinel-state">ACTIVE</span>
+            </div>
+            <div class="status-row">
+              <span>Gemini 3.8:</span>
+              <span>READY</span>
+            </div>
+            <div class="status-row">
+              <span>Vault DB:</span>
+              <span>SYNCD</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Views Container -->
+        <div class="soc-view-container">
+
+          <!-- ==========================================================================
+               VIEW 1: DASHBOARD
+               ========================================================================== -->
+          <section class="soc-view is-active" id="view-dashboard">
+            <!-- Telemetry Cards -->
+            <div class="soc-banner" aria-label="SOC Metrics">
+              <div class="telemetry-card">
+                <span class="card-label">Total Scans</span>
+                <div class="card-value highlight-cyan" id="counter-scans">142</div>
+                <span class="card-subtext">Multi-Channel Ingest</span>
+              </div>
+              <div class="telemetry-card">
+                <span class="card-label">Threats Intercepted</span>
+                <div class="card-value highlight-danger" id="counter-threats">89</div>
+                <span class="card-subtext">Hostile Payloads</span>
+              </div>
+              <div class="telemetry-card">
+                <span class="card-label">Safe Messages</span>
+                <div class="card-value highlight-safe" id="counter-safe">53</div>
+                <span class="card-subtext">Verified Baseline</span>
+              </div>
+              <div class="telemetry-card">
+                <span class="card-label">Phishing Attempts</span>
+                <div class="card-value highlight-warn" id="counter-phishing">46</div>
+                <span class="card-subtext">Credential Harvesters</span>
+              </div>
+              <div class="telemetry-card">
+                <span class="card-label">Scams & Ads</span>
+                <div class="card-value highlight-warn" id="counter-scams">31</div>
+                <span class="card-subtext">Advance-Fee / Fraud</span>
+              </div>
+              <div class="telemetry-card">
+                <span class="card-label">Avg Risk Rating</span>
+                <div class="card-value highlight-danger" id="counter-avg-risk">68 / 100</div>
+                <span class="card-subtext">Calibrated Bayesian</span>
+              </div>
+            </div>
+
+            <!-- Autonomous Sentinel Bar -->
+            <div class="autoscan-sentinel-bar" aria-label="Auto-Scan Threat Sentinel">
+              <div class="sentinel-left">
+                <div class="sentinel-badge">
+                  <span class="nano-pulse-ring"></span>
+                  <span class="sentinel-dot" id="sentinel-status-dot"></span>
+                  <span class="sentinel-title">AUTONOMOUS THREAT SENTINEL</span>
+                </div>
+                <div class="sentinel-meta" id="sentinel-status-text">
+                  STATUS: <strong class="highlight-cyan" id="sentinel-state-label">STANDBY</strong>
+                </div>
+              </div>
+
+              <div class="sentinel-stream-ticker" id="sentinel-stream-ticker">
+                <span class="ticker-prefix">⚡ AUTO-FEED:</span>
+                <span class="ticker-content" id="sentinel-ticker-item">Awaiting autonomous live traffic ingest...</span>
+                <div class="ticker-progress-track">
+                  <div class="ticker-progress-bar" id="sentinel-progress-bar"></div>
+                </div>
+              </div>
+
+              <div class="sentinel-actions">
+                <button type="button" class="btn-autoscan-toggle" id="btn-toggle-autoscan" title="Toggle Autonomous Real-Time Background Scanner">
+                  <span class="btn-toggle-track">
+                    <span class="btn-toggle-knob"></span>
+                  </span>
+                  <span id="btn-toggle-autoscan-label">AUTO-SCAN: OFF</span>
+                </button>
+
+                <div class="sentinel-speed-wrap" title="Autonomous Interception Cadence">
+                  <label for="autoscan-cadence" class="sr-only">Scan Cadence</label>
+                  <select id="autoscan-cadence" class="sentinel-select">
+                    <option value="3500">Fast (3.5s)</option>
+                    <option value="6000" selected>Normal (6s)</option>
+                    <option value="10000">Slow (10s)</option>
+                  </select>
+                </div>
+
+                <button type="button" class="btn-sentinel-feed" id="btn-feed-next" title="Inject next simulated hostile payload immediately">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                  </svg>
+                  <span>NEXT THREAT</span>
+                </button>
+
+                <label class="autoscan-on-type-label" title="Automatically trigger scan when pasting or finishing typing">
+                  <input type="checkbox" id="check-autoscan-on-input" checked />
+                  <span>Auto-Scan on Input</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Dashboard Split: Quick Scanner Trigger & Radar Sweep -->
+            <div class="lower-stage" style="margin-top: 1rem;">
+              <div class="cyber-panel">
+                <div class="panel-header">
+                  <span class="panel-title">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 2a10 10 0 0 1 10 10"></path>
+                    </svg>
+                    Real-Time Radar Perimeter Sweep
+                  </span>
+                  <span class="card-subtext">360° Live Sensor</span>
+                </div>
+                <div class="panel-body radar-wrap">
+                  <canvas id="radar-canvas" width="180" height="180"></canvas>
+                  <span class="card-subtext" style="margin-top: 0.5rem;">Sensor Pulse Active // Listening on Cellular & Cloud Nodes</span>
+                </div>
+              </div>
+
+              <!-- Recent Activity Stream -->
+              <div class="cyber-panel">
+                <div class="panel-header">
+                  <span class="panel-title">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    Live Ingest Telemetry Stream
+                  </span>
+                  <button type="button" class="btn-sub-action highlight" id="btn-goto-scanner-from-dash">
+                    Open Full Scanner &rarr;
+                  </button>
+                </div>
+                <div class="panel-body" style="padding: 0.75rem;">
+                  <div class="inbox-messages-list" id="dashboard-recent-stream">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================================================
+               VIEW 2: MULTI-CHANNEL THREAT SCANNER
+               ========================================================================== -->
+          <section class="soc-view" id="view-scanner">
+            
+            <!-- Channel Switcher Tabs -->
+            <div class="scanner-channel-tabs" role="tablist" aria-label="Scanner Channels">
+              <button type="button" class="channel-tab-btn is-active" data-channel="sms">
+                <span>💬 SMS / MESSAGE</span>
+              </button>
+              <button type="button" class="channel-tab-btn" data-channel="email">
+                <span>✉️ EMAIL</span>
+              </button>
+              <button type="button" class="channel-tab-btn" data-channel="url">
+                <span>🔗 URL / DOMAIN</span>
+              </button>
+              <button type="button" class="channel-tab-btn" data-channel="ad">
+                <span>📢 ADVERTISEMENT</span>
+              </button>
+              <button type="button" class="channel-tab-btn" data-channel="document">
+                <span>📄 DOCUMENT</span>
+              </button>
+            </div>
+
+            <main class="main-stage">
+              <!-- Left: Threat Scanner Input Box -->
+              <section class="cyber-panel" id="scanner-card" aria-labelledby="scanner-heading">
+                <div class="panel-header">
+                  <span class="panel-title" id="scanner-heading">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Multi-Channel AI Forensic Ingest
+                  </span>
+                  <span class="detected-mode-indicator">
+                    Active Channel: <strong id="detected-mode" style="color: var(--text-cyan);">SMS / MESSAGE</strong>
+                  </span>
+                </div>
+
+                <div class="panel-body">
+                  <div class="scanner-input-container">
+                    <!-- Nano-Laser Scanline & Cyber Matrix Overlay -->
+                    <div class="nano-laser-overlay" id="nano-laser-overlay" aria-hidden="true">
+                      <div class="nano-laser-beam"></div>
+                      <div class="nano-scan-grid"></div>
+                    </div>
+
+                    <!-- Document Upload Dropzone -->
+                    <div class="document-dropzone" id="document-dropzone">
+                      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#00e5ff" stroke-width="1.8">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                      </svg>
+                      <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #f1f5f9;">
+                        Drop document, text file, or logs to analyze
+                      </div>
+                      <div style="font-size: 0.7rem; color: #94a3b8;">
+                        Supports .txt, .log, .eml, .csv (Treated as untrusted in sandbox)
+                      </div>
+                      <input type="file" id="document-file-input" style="display: none;" accept=".txt,.log,.eml,.csv,.json" />
+                    </div>
+
+                    <label for="scanner-input" class="sr-only">Paste suspicious message, email, URL or text</label>
+                    <textarea 
+                      id="scanner-input" 
+                      class="scanner-textarea" 
+                      placeholder="Paste suspicious SMS, email headers, malicious URL, advertising copy, or document text here for deep forensic triage..."
+                      rows="4"
+                    >Congratulations! You have won ₹5,00,000 in the National Lucky Draw. Click http://win-claim500k.xyz/collect to claim your prize immediately before it expires!</textarea>
+
+                    <!-- Quick Preset Lures -->
+                    <div class="scanner-presets" role="group" aria-label="Sample test payloads">
+                      <span class="presets-label">Preset Test Lures:</span>
+                      <button type="button" class="preset-chip" data-sample="lottery">Prize Lottery (Scam)</button>
+                      <button type="button" class="preset-chip" data-sample="kyc">SBI KYC Urgent (Phish)</button>
+                      <button type="button" class="preset-chip" data-sample="google">Google Account Alert</button>
+                      <button type="button" class="preset-chip" data-sample="crypto">Crypto 1000% ROI (Ad)</button>
+                      <button type="button" class="preset-chip" data-sample="doc_macro">Invoice Macro (Doc)</button>
+                      <button type="button" class="preset-chip" data-sample="safe">Doctor Appt (Safe)</button>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="scanner-controls">
+                      <button type="button" class="btn-clear" id="clear-btn" title="Clear Scanner Input">Clear Buffer</button>
+                      <button type="button" class="btn-scan" id="scan-btn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        SCAN THREAT
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Animated Scanning Pipeline HUD -->
+                  <div class="scan-pipeline" id="scan-pipeline" aria-label="Scanning stages">
+                    <div class="pipeline-node" id="node-lexical">
+                      <span class="node-icon">01</span>
+                      <span class="node-label">Lexical Entropy</span>
+                      <span class="node-status">STANDBY</span>
+                    </div>
+                    <div class="pipeline-connector"></div>
+                    <div class="pipeline-node" id="node-intel">
+                      <span class="node-icon">02</span>
+                      <span class="node-label">Threat Feeds</span>
+                      <span class="node-status">STANDBY</span>
+                    </div>
+                    <div class="pipeline-connector"></div>
+                    <div class="pipeline-node" id="node-heuristics">
+                      <span class="node-icon">03</span>
+                      <span class="node-label">ML Classifier</span>
+                      <span class="node-status">STANDBY</span>
+                    </div>
+                    <div class="pipeline-connector"></div>
+                    <div class="pipeline-node" id="node-gemini">
+                      <span class="node-icon">04</span>
+                      <span class="node-label">Gemini 3.8</span>
+                      <span class="node-status">STANDBY</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Right: Forensic Analysis Result Panel -->
+              <section class="cyber-panel result-panel" id="result-panel" aria-labelledby="result-heading">
+                <div class="panel-header">
+                  <span class="panel-title" id="result-heading">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    Forensic Threat Verdict
+                  </span>
+                  <span class="card-subtext" id="result-timestamp">Analysis Complete</span>
+                </div>
+
+                <div class="panel-body">
+                  <div class="result-header-row">
+                    <div class="verdict-badge badge-danger" id="verdict-badge">
+                      SCAM DETECTED
+                    </div>
+                    <div class="side-metric-item" style="text-align: right;">
+                      <span class="side-metric-label">Classification</span>
+                      <span class="side-metric-val" id="stat-classification">SCAM</span>
+                    </div>
+                  </div>
+
+                  <!-- Risk Gauge & Specs -->
+                  <div class="gauge-row">
+                    <div class="svg-gauge" aria-label="Risk score gauge">
+                      <svg width="120" height="120" viewBox="0 0 120 120" style="transform: rotate(-90deg);">
+                        <circle cx="60" cy="60" r="48" fill="none" stroke="#172233" stroke-width="9" />
+                        <circle 
+                          id="gauge-active-circle"
+                          cx="60" cy="60" r="48" 
+                          fill="none" 
+                          stroke="#ef4444" 
+                          stroke-width="9" 
+                          stroke-dasharray="301.6" 
+                          stroke-dashoffset="54" 
+                          stroke-linecap="round"
+                          style="transition: stroke-dashoffset 0.8s ease-out, stroke 0.3s;"
+                        />
+                      </svg>
+                      <div class="gauge-meter-value">
+                        <span class="gauge-score-number" id="gauge-score-num">82</span>
+                        <span class="gauge-score-denom">/ 100 Risk</span>
+                      </div>
+                    </div>
+
+                    <div class="gauge-metrics-side">
+                      <div class="side-metric-item">
+                        <span class="side-metric-label">Neural Confidence</span>
+                        <span class="side-metric-val" id="stat-confidence-display">94%</span>
+                      </div>
+                      <div class="side-metric-item">
+                        <span class="side-metric-label">Severity Level</span>
+                        <span class="side-metric-val" id="stat-severity-display" style="color: #ef4444;">HIGH</span>
+                      </div>
+                      <div class="side-metric-item">
+                        <span class="side-metric-label">Engine Latency</span>
+                        <span class="side-metric-val" style="color: var(--color-safe);">18 ms</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Evidence Red Flags -->
+                  <div class="evidence-section" id="evidence-card">
+                    <span class="side-metric-label" style="letter-spacing: 0.1em; color: var(--text-cyan);">Concrete Extracted Red Flags:</span>
+                    <div class="evidence-tags-wrap" id="evidence-tags">
+                      <span class="evidence-pill tag-danger">[FREE PRIZE]</span>
+                      <span class="evidence-pill tag-danger">[URGENT LANGUAGE]</span>
+                      <span class="evidence-pill tag-danger">[UNKNOWN URL .XYZ]</span>
+                    </div>
+
+                    <ul class="evidence-bullet-list" id="evidence-list">
+                      <li>"Congratulations" → common spam / lottery prize wording</li>
+                      <li>"You won ₹5,00,000" → unrealistic financial windfall reward claim</li>
+                      <li>Destination domain (.xyz) → unverified high-abuse top-level domain</li>
+                    </ul>
+                  </div>
+
+                  <!-- Gemini AI Explanation -->
+                  <div class="ai-explanation-box">
+                    <div class="explanation-header">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                      </svg>
+                      Why I Flagged This (Gemini AI Explanation)
+                    </div>
+                    <p class="explanation-body" id="technical-explanation">
+                      This message uses urgency and reward-based language to encourage the recipient to click a potentially unsafe link.
+                    </p>
+                    
+                    <div class="human-translation-bubble" id="human-translation">
+                      "Human translation: Basically, they're trying to make you panic-click. Nice try, internet villain. 😎"
+                    </div>
+                  </div>
+
+                  <!-- Recommendation Box -->
+                  <div class="action-box" id="recommendation-box">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="8" x2="12" y2="12"></line>
+                      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <span id="recommendation-text">DO NOT CLICK THE LINK. Do not share bank credentials or OTP. Report sender and delete message.</span>
+                  </div>
+
+                  <!-- Ask ShieldGPT Button -->
+                  <div style="margin-top: 1rem; text-align: right;">
+                    <button type="button" class="btn-sub-action highlight" id="btn-ask-shieldgpt-about-scan">
+                      💬 Ask ShieldGPT About This Threat &rarr;
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </main>
+          </section>
+
+          <!-- ==========================================================================
+               VIEW 3: GMAIL SECURITY
+               ========================================================================== -->
+          <section class="soc-view" id="view-gmail">
+            <div class="cyber-panel inbox-hub-panel" id="inbox-hub-panel">
+              <div class="panel-header">
+                <span class="panel-title">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  Google Workspace Gmail Security Center
+                </span>
+                <span class="channel-status-badge" id="badge-gmail-status">STANDBY</span>
+              </div>
+
+              <div class="panel-body">
+                <!-- Disconnected State -->
+                <div class="gmail-auth-box" id="gmail-disconnected-box">
+                  <div class="gmail-auth-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div class="gmail-auth-content">
+                    <h3>Connect Google Workspace Gmail</h3>
+                    <p>Connect your personal or work Gmail inbox using official Google OAuth 2.0 to enable automated real-time phishing and spam defense. ShieldBot will inspect incoming email headers, sender signatures, and links with your explicit permission.</p>
+                    <div class="gmail-auth-actions">
+                      <!-- Official Google Sign-In Button per guidelines -->
+                      <button type="button" class="gsi-material-button" id="btn-google-signin">
+                        <div class="gsi-material-button-state"></div>
+                        <div class="gsi-material-button-content-wrapper">
+                          <div class="gsi-material-button-icon">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="display: block;">
+                              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                              <path fill="none" d="M0 0h48v48H0z"></path>
+                            </svg>
+                          </div>
+                          <span class="gsi-material-button-contents">Sign in with Google</span>
+                        </div>
+                      </button>
+                      <span class="auth-hint-text">Least privilege: gmail.readonly // In-memory secure token caching</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Connected State -->
+                <div class="gmail-connected-box" id="gmail-connected-box" style="display: none;">
+                  <div class="gmail-account-bar">
+                    <div class="gmail-user-info">
+                      <div class="gmail-avatar" id="gmail-user-avatar">G</div>
+                      <div>
+                        <div class="gmail-user-email" id="gmail-user-email">user@gmail.com</div>
+                        <div class="gmail-perm-tag">Google Workspace // Gmail Readonly Active</div>
+                      </div>
+                    </div>
+                    <div class="gmail-bar-buttons">
+                      <button type="button" class="btn-sub-action highlight" id="btn-sync-gmail">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="23 4 23 10 17 10"></polyline>
+                          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                        </svg>
+                        Scan Inbox
+                      </button>
+                      <button type="button" class="btn-sub-action" id="btn-scan-unread-gmail">
+                        Scan Unread
+                      </button>
+                      <button type="button" class="btn-sub-action danger" id="btn-disconnect-gmail">
+                        Disconnect
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Gmail Messages List -->
+                  <div class="inbox-messages-list" id="gmail-messages-list">
+                    <div class="empty-inbox-prompt">Click [ Scan Inbox ] to query permitted messages.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================================================
+               VIEW: PHONE & LAPTOP MESSAGE ACCESS PORTAL
+               ========================================================================== -->
+          <section class="soc-view" id="view-messages">
+            <div class="cyber-panel">
+              <div class="panel-header">
+                <span class="panel-title">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#38bdf8" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  </svg>
+                  Device Message Access Hub // Phone &amp; Laptop Message Triage
+                </span>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                  <span class="channel-status-badge live">DUAL-DEVICE ACTIVE</span>
+                  <button type="button" class="btn-sub-action highlight" id="btn-open-pair-modal" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">
+                    📲 Pair Device QR
+                  </button>
+                </div>
+              </div>
+
+              <div class="panel-body">
+                
+                <!-- Device Selector Navigation Tabs -->
+                <div class="device-tabs-row" role="tablist">
+                  <button type="button" class="device-tab-btn is-active" id="tab-dev-phone" data-target="dev-pane-phone">
+                    📱 Phone (SMS &amp; Carrier Stream)
+                  </button>
+                  <button type="button" class="device-tab-btn" id="tab-dev-laptop" data-target="dev-pane-laptop">
+                    💻 Laptop (Gmail &amp; Desktop Ingest)
+                  </button>
+                  <button type="button" class="device-tab-btn" id="tab-dev-sync" data-target="dev-pane-sync">
+                    🔄 Unified Cross-Device Log
+                  </button>
+                  <button type="button" class="device-tab-btn" id="tab-dev-guide" data-target="dev-pane-guide">
+                    ℹ️ How To Access Messages Guide
+                  </button>
+                </div>
+
+                <!-- PANE 1: PHONE SMS STREAM -->
+                <div class="device-tab-pane" id="dev-pane-phone">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <div>
+                      <div style="font-weight: 700; color: #f1f5f9; font-size: 0.85rem;">Connected Mobile Phone</div>
+                      <div style="font-size: 0.72rem; color: #38bdf8; font-family: var(--font-mono);">
+                        Samsung Galaxy S24 Ultra // Carrier Bridge: 5G NSA (Airtel / Jio / GSM)
+                      </div>
+                    </div>
+                    <div style="display: flex; gap: 0.4rem;">
+                      <button type="button" class="btn-sub-action highlight" id="btn-sim-sms-incoming" style="font-size: 0.72rem;">
+                        ⚡ Simulate Incoming SMS
+                      </button>
+                      <button type="button" class="btn-sub-action" id="btn-toggle-add-sms" style="font-size: 0.72rem;">
+                        + Ingest New SMS
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Ingest Custom SMS Form (Collapsible) -->
+                  <div id="add-sms-form-box" style="display: none; background: rgba(5,7,10,0.6); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; padding: 1rem; margin-bottom: 1rem;">
+                    <div style="font-size: 0.78rem; font-weight: 700; color: #38bdf8; margin-bottom: 0.5rem;">Ingest SMS Message from Phone</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
+                      <div>
+                        <label style="font-size: 0.68rem; color: #94a3b8; display: block; margin-bottom: 0.2rem;">Sender / ID (e.g. VM-BANK, +91-98765)</label>
+                        <input type="text" id="sms-input-sender" placeholder="e.g. VM-SBINB or +1-202-555" style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.35rem 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem;" />
+                      </div>
+                      <div>
+                        <label style="font-size: 0.68rem; color: #94a3b8; display: block; margin-bottom: 0.2rem;">Carrier / Mobile Node</label>
+                        <input type="text" id="sms-input-carrier" value="Airtel 5G (Android 15)" style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.35rem 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem;" />
+                      </div>
+                    </div>
+                    <div style="margin-bottom: 0.5rem;">
+                      <label style="font-size: 0.68rem; color: #94a3b8; display: block; margin-bottom: 0.2rem;">SMS Body / Text Payload</label>
+                      <textarea id="sms-input-body" rows="2" placeholder="Paste or type SMS content from your mobile phone..." style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.4rem 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem;"></textarea>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                      <button type="button" class="btn-sub-action" id="btn-cancel-add-sms" style="font-size: 0.72rem;">Cancel</button>
+                      <button type="button" class="btn-sub-action highlight" id="btn-submit-add-sms" style="font-size: 0.72rem;">Submit &amp; Triage</button>
+                    </div>
+                  </div>
+
+                  <!-- Phone SMS List -->
+                  <div id="phone-sms-list-container">
+                    <!-- Populated dynamically via JS -->
+                  </div>
+                </div>
+
+                <!-- PANE 2: LAPTOP EMAIL & INGEST -->
+                <div class="device-tab-pane" id="dev-pane-laptop" style="display: none;">
+                  <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                      <div>
+                        <div style="font-weight: 700; color: #f1f5f9; font-size: 0.85rem;">Laptop Workspace Ingest Methods</div>
+                        <div style="font-size: 0.72rem; color: #c084fc; font-family: var(--font-mono);">
+                          Chrome / MacOS / Windows / Google Workspace Client
+                        </div>
+                      </div>
+                      <div style="display: flex; gap: 0.5rem;">
+                        <button type="button" class="btn-sub-action highlight" id="btn-laptop-paste-clipboard" style="font-size: 0.72rem;">
+                          📋 Paste Laptop Clipboard
+                        </button>
+                        <button type="button" class="btn-sub-action" id="btn-goto-gmail-center" style="font-size: 0.72rem;">
+                          📧 Go to Gmail Security Center &rarr;
+                        </button>
+                      </div>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                      <label style="font-size: 0.72rem; color: #94a3b8; display: block; margin-bottom: 0.3rem;">Quick Laptop Text / Email Header Ingest</label>
+                      <textarea id="laptop-quick-ingest-text" rows="3" placeholder="Paste email, message, link, or notification from your laptop..." style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem;"></textarea>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+                      <button type="button" class="btn-sub-action highlight" id="btn-laptop-send-scanner">
+                        ⚡ Send to Multi-Channel Threat Scanner
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Laptop Recent Ingests List -->
+                  <div id="laptop-messages-list-container">
+                    <!-- Populated dynamically via JS -->
+                  </div>
+                </div>
+
+                <!-- PANE 3: UNIFIED CROSS-DEVICE LOG -->
+                <div class="device-tab-pane" id="dev-pane-sync" style="display: none;">
+                  <div style="margin-bottom: 0.75rem; font-size: 0.75rem; color: #94a3b8; display: flex; justify-content: space-between; align-items: center;">
+                    <span>Unified Security Timeline (Messages ingested across Phone 📱 and Laptop 💻)</span>
+                    <button type="button" class="btn-sub-action" id="btn-refresh-device-msgs" style="font-size: 0.68rem; padding: 0.2rem 0.5rem;">
+                      🔄 Refresh Stream
+                    </button>
+                  </div>
+                  <div id="unified-device-messages-container">
+                    <!-- Populated dynamically via JS -->
+                  </div>
+                </div>
+
+                <!-- PANE 4: HOW TO ACCESS MESSAGES GUIDE -->
+                <div class="device-tab-pane" id="dev-pane-guide" style="display: none;">
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                    
+                    <!-- Guide Card: Phone -->
+                    <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 1.25rem;">
+                      <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">📱 How to Access Messages on Phone</div>
+                      <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.6;">
+                        <p><strong>1. Direct Mobile Browser Access:</strong> Open AI-SpamShield on Chrome or Safari on your phone. You can install it as a PWA app with one tap.</p>
+                        <p><strong>2. Live SMS Carrier Feed:</strong> Open the <em>"Phone (SMS &amp; Carrier Stream)"</em> tab above. Your incoming bank OTPs, delivery alerts, and SMS lures appear in real-time.</p>
+                        <p><strong>3. Quick Copy &amp; Scan:</strong> Copy any text from your Messages app, then tap <em>"+ Ingest New SMS"</em> to test it with ShieldBot.</p>
+                        <p><strong>4. Smartphone Pairing:</strong> Click <em>"📲 Pair Device QR"</em> to scan the pairing token on your mobile phone camera.</p>
+                      </div>
+                    </div>
+
+                    <!-- Guide Card: Laptop -->
+                    <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 8px; padding: 1.25rem;">
+                      <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">💻 How to Access Messages on Laptop</div>
+                      <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.6;">
+                        <p><strong>1. Google Workspace Gmail:</strong> Connect your personal or work Gmail in the <em>"Gmail Security"</em> tab. ShieldBot safely reads email headers and links with your explicit permission.</p>
+                        <p><strong>2. Clipboard Ingest:</strong> Click <em>"📋 Paste Laptop Clipboard"</em> in the Laptop tab or press Ctrl+V in the Threat Scanner.</p>
+                        <p><strong>3. Document &amp; Email Files:</strong> Drag and drop <code>.eml</code>, <code>.txt</code>, or <code>.pdf</code> attachments directly into the File Sandbox.</p>
+                        <p><strong>4. ShieldBot Two-AI Assistant:</strong> Ask ShieldBot <em>"Check my connected Gmail"</em> or <em>"Scan this email"</em> anytime in the floating chat drawer.</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================================================
+               VIEW 4: THREAT HISTORY
+               ========================================================================== -->
+          <section class="soc-view" id="view-history">
+            <div class="cyber-panel">
+              <div class="panel-header">
+                <span class="panel-title">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  Forensic Threat Audit History
+                </span>
+                <span class="card-subtext" id="history-count-badge">Total Records: Loading...</span>
+              </div>
+
+              <div class="panel-body">
+                <!-- Filters -->
+                <div class="history-filter-bar">
+                  <input type="text" class="history-search-input" id="history-search-input" placeholder="Search audited threats by keywords, domain, or sender..." />
+                  <select class="history-select" id="history-filter-channel">
+                    <option value="all">All Channels</option>
+                    <option value="sms">SMS / Message</option>
+                    <option value="email">Email</option>
+                    <option value="url">URL / Domain</option>
+                    <option value="ad">Advertisement</option>
+                    <option value="document">Document</option>
+                  </select>
+                  <select class="history-select" id="history-filter-class">
+                    <option value="all">All Verdicts</option>
+                    <option value="phishing">Phishing</option>
+                    <option value="scam">Scam</option>
+                    <option value="malicious">Malicious</option>
+                    <option value="safe">Safe</option>
+                  </select>
+                </div>
+
+                <div class="audit-table-wrap">
+                  <table class="audit-table">
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Vector</th>
+                        <th>Payload Snippet</th>
+                        <th>Classification</th>
+                        <th>Risk Score</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="history-table-body">
+                      <!-- Populated dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================================================
+               VIEW 5: ANALYTICS (Chart.js)
+               ========================================================================== -->
+          <section class="soc-view" id="view-analytics">
+            <div class="analytics-chart-grid">
+              
+              <!-- Chart 1: Threat Activity Over Time -->
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <span class="chart-card-title">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#00e5ff" stroke-width="2">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    Threat Activity Over Time
+                  </span>
+                  <span class="card-subtext">Recent 10m Velocity</span>
+                </div>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="chart-activity"></canvas>
+                </div>
+              </div>
+
+              <!-- Chart 2: Threat Classification Distribution -->
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <span class="chart-card-title">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ef4444" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                    Classification Distribution
+                  </span>
+                  <span class="card-subtext">Threat Types</span>
+                </div>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="chart-classification"></canvas>
+                </div>
+              </div>
+
+              <!-- Chart 3: Risk Score Distribution -->
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <span class="chart-card-title">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#f59e0b" stroke-width="2">
+                      <line x1="18" y1="20" x2="18" y2="10"></line>
+                      <line x1="12" y1="20" x2="12" y2="4"></line>
+                      <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Risk Score Histogram
+                  </span>
+                  <span class="card-subtext">Severity Buckets</span>
+                </div>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="chart-risk"></canvas>
+                </div>
+              </div>
+
+              <!-- Chart 4: Attack Vector Radar -->
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <span class="chart-card-title">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#10b981" stroke-width="2">
+                      <polygon points="12 2 2 22 22 22"></polygon>
+                    </svg>
+                    Threat Vectors & Channels
+                  </span>
+                  <span class="card-subtext">Ingest Infiltration</span>
+                </div>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="chart-vectors"></canvas>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ==========================================================================
+               VIEW 6: AI ASSISTANT / SHIELDGPT
+               ========================================================================== -->
+          <section class="soc-view" id="view-assistant">
+            <div class="cyber-panel" style="height: 680px; display: flex; flex-direction: column;">
+              <div class="panel-header">
+                <div class="drawer-title-wrap">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00e5ff" stroke-width="2.2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span class="panel-title">ShieldGPT // Gemini AI Security Assistant</span>
+                  <span class="channel-status-badge live">GEMINI 3.8 FLASH</span>
+                </div>
+                <button type="button" class="btn-sub-action" id="btn-clear-chat-history">
+                  Clear History
+                </button>
+              </div>
+
+              <!-- Context Banner -->
+              <div class="drawer-context-pill" id="assistant-context-pill">
+                <span>Active Context: <strong id="assistant-context-label">General SOC Telemetry Baseline</strong></span>
+                <span id="assistant-context-score">Risk: Calibrated</span>
+              </div>
+
+              <!-- Messages Stream -->
+              <div class="drawer-messages-stream" id="assistant-messages-stream" style="flex: 1;">
+                <div class="chat-bubble bot">
+                  <strong>ShieldGPT:</strong> Welcome, Operator! I am your Gemini-powered cybersecurity analyst. Ask me why an email is dangerous, how to handle compromised credentials, or how to inspect suspicious domains.
+                </div>
+              </div>
+
+              <!-- Quick Security Chips -->
+              <div class="scanner-presets" style="padding: 0.5rem 1rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+                <button type="button" class="preset-chip chat-query-chip" data-q="Why was this email flagged as high risk?">Why was this flagged?</button>
+                <button type="button" class="preset-chip chat-query-chip" data-q="What should I do if I clicked a suspicious link?">Clicked a link: What to do?</button>
+                <button type="button" class="preset-chip chat-query-chip" data-q="How do I identify a fake cryptocurrency advertisement?">Spotting fake crypto ads</button>
+                <button type="button" class="preset-chip chat-query-chip" data-q="Explain SPF and DKIM authentication in plain English.">Explain SPF/DKIM</button>
+              </div>
+
+              <!-- Input bar -->
+              <div class="drawer-input-bar">
+                <input type="text" id="assistant-input" placeholder="Ask ShieldGPT about threats, vectors, or remediation steps..." />
+                <button type="button" class="btn-drawer-voice" id="assistant-voice-btn" title="Voice Input (Speech-to-Text)">
+                  🎤
+                </button>
+                <button type="button" class="btn-drawer-send" id="assistant-send-btn">
+                  SEND
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================================================
+               VIEW 7: SETTINGS
+               ========================================================================== -->
+          <section class="soc-view" id="view-settings">
+            <div class="settings-grid">
+              
+              <!-- Operator Profile -->
+              <div class="setting-card">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  Operator Security Clearance
+                </h3>
+                <p>Manage your local operator credentials and session clearance.</p>
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                  <div>Operator: <strong style="color: var(--text-cyan);" id="settings-operator-name">Tharani Karthik</strong></div>
+                  <div>Clearance ID: <strong style="color: #38bdf8;" id="settings-badge-id">AGENT-TH-01</strong></div>
+                  <div>Role: <span style="color: #94a3b8;">Chief Cyber Security Operator (SOC Lead)</span></div>
+                </div>
+                <button type="button" class="btn-sub-action highlight" style="margin-top: 1rem;" id="btn-reauthenticate">
+                  Switch Operator / Sign In
+                </button>
+              </div>
+
+              <!-- AI Security Engine -->
+              <div class="setting-card">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                  AI Engine & Threat Intelligence
+                </h3>
+                <p>Status of cloud neural inference and threat verification feeds.</p>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>Gemini 3.8 Flash:</span>
+                    <span style="color: #10b981;">CONNECTED</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>VirusTotal API:</span>
+                    <span style="color: #38bdf8;">ACTIVE</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>URLhaus abuse.ch:</span>
+                    <span style="color: #10b981;">LIVE REST</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>PhishTank Signatures:</span>
+                    <span style="color: #10b981;">SYNCHRONIZED</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Presentation Demo Mode -->
+              <div class="setting-card">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                  Presentation Demo Mode
+                </h3>
+                <p>Simulate high-fidelity offline threats when external network feeds are restricted.</p>
+                <button type="button" class="btn-sub-action highlight" id="btn-toggle-demo-mode">
+                  Toggle Presentation Mode
+                </button>
+              </div>
+
+              <!-- Audio & Voice Options -->
+              <div class="setting-card">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg>
+                  Sound & Speech Synthesis
+                </h3>
+                <p>Toggle audio telemetry chimes and automated speech readout.</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <button type="button" class="btn-sub-action" id="btn-sound-toggle-setting">
+                    Audio FX: ON
+                  </button>
+                  <button type="button" class="btn-sub-action" id="btn-voice-toggle-setting">
+                    Voice Speech: OFF
+                  </button>
+                  <button type="button" class="btn-sub-action" id="btn-reset-shield-pos">
+                    Reset Shield AI Position
+                  </button>
+                </div>
+              </div>
+
+              <!-- ShieldBot Agent Customization -->
+              <div class="setting-card" style="grid-column: 1 / -1;">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00e5ff" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  ShieldBot Agent Character Customization
+                </h3>
+                <p>Customize ShieldBot's personality, size, appearance, and voice style without compromising security decisions.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                  <div>
+                    <label for="select-agent-personality" class="auth-label" style="margin-bottom: 0.4rem; display: block;">AGENT PERSONALITY</label>
+                    <select id="select-agent-personality" class="policy-select" style="width: 100%; padding: 0.4rem;">
+                      <option value="Cybersecurity Expert" selected>Cybersecurity Expert (Technical & Authoritative)</option>
+                      <option value="Professional">Professional (Formal & Structured)</option>
+                      <option value="Friendly">Friendly (Warm & Reassuring)</option>
+                      <option value="Funny">Funny (Witty & Satirical Lures)</option>
+                      <option value="Minimal">Minimal (Telegraphic & Direct)</option>
+                      <option value="Robot">Robot (Synthetic & Probabilistic)</option>
+                    </select>
+                    <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.3rem;">
+                      *Security risk rules are strictly independent of personality.
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="select-agent-size" class="auth-label" style="margin-bottom: 0.4rem; display: block;">AGENT SCALE SIZE</label>
+                    <select id="select-agent-size" class="policy-select" style="width: 100%; padding: 0.4rem;">
+                      <option value="compact">Compact (120px Viewport Footprint)</option>
+                      <option value="standard" selected>Standard (150px Balanced)</option>
+                      <option value="large">Large (180px Commanding)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label for="select-agent-animation" class="auth-label" style="margin-bottom: 0.4rem; display: block;">ANIMATION PROFILE</label>
+                    <select id="select-agent-animation" class="policy-select" style="width: 100%; padding: 0.4rem;">
+                      <option value="cyber" selected>Cyber SOC Kinetic (Glitch & Hover)</option>
+                      <option value="smooth">Smooth Zero-G Glide</option>
+                      <option value="minimal">Minimal Static HUD</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ==========================================================================
+               Guardian AI Security Center & Action Gate
+               ========================================================================== -->
+          <section class="soc-view" id="view-guardian">
+            
+            <!-- Guardian Hero Status Card -->
+            <div class="guardian-hero-card">
+              <div class="guardian-hero-header">
+                <div class="guardian-title-group">
+                  <h2>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ef4444" stroke-width="2.2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    GUARDIAN AI // INDEPENDENT SECURITY MONITOR
+                  </h2>
+                  <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.3rem;">
+                    Autonomous zero-trust policy engine monitoring ShieldBot actions. User confirmation enforced for consequential operations.
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;">
+                  <button type="button" class="btn-emergency-stop" id="btn-guardian-stop-all">
+                    🛑 STOP ALL AGENT ACTIVITY
+                  </button>
+                  <button type="button" class="btn-sub-action highlight" id="btn-guardian-resume-agent" style="display: none;">
+                    ▶ RESUME SHIELDBOT
+                  </button>
+                </div>
+              </div>
+
+              <!-- Metrics -->
+              <div class="guardian-metrics-row">
+                <div class="guardian-metric-box">
+                  <div class="guardian-metric-val" id="grd-stat-mode" style="color: #34d399;">ACTIVE</div>
+                  <div class="guardian-metric-lbl">Guardian Engine</div>
+                </div>
+                <div class="guardian-metric-box">
+                  <div class="guardian-metric-val" id="grd-stat-risk" style="color: #00e5ff;">10/100</div>
+                  <div class="guardian-metric-lbl">Agent Action Risk</div>
+                </div>
+                <div class="guardian-metric-box">
+                  <div class="guardian-metric-val" id="grd-stat-total">0</div>
+                  <div class="guardian-metric-lbl">Evaluations</div>
+                </div>
+                <div class="guardian-metric-box">
+                  <div class="guardian-metric-val" id="grd-stat-allowed" style="color: #34d399;">0</div>
+                  <div class="guardian-metric-lbl">Allowed Safe</div>
+                </div>
+                <div class="guardian-metric-box">
+                  <div class="guardian-metric-val" id="grd-stat-warnings" style="color: #fbbf24;">0</div>
+                  <div class="guardian-metric-lbl">Confirmations</div>
+                </div>
+                <div class="guardian-metric-box">
+                  <div class="guardian-metric-val" id="grd-stat-blocked" style="color: #f87171;">0</div>
+                  <div class="guardian-metric-lbl">Blocked Violations</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Scenario Verification Sandbox -->
+            <div style="margin-bottom: 1.5rem;">
+              <div class="panel-header-strip" style="background: rgba(15, 23, 42, 0.6); padding: 0.6rem 1rem; border-radius: 6px 6px 0 0; border: 1px solid rgba(255, 255, 255, 0.08); border-bottom: none;">
+                <span class="panel-header-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#00e5ff" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                  Live Scenario Verification Simulator (Test the 5 Core Security Rules)
+                </span>
+                <span style="font-size: 0.7rem; color: #94a3b8;">1-Click Behavioral Proof</span>
+              </div>
+
+              <div class="guardian-scenarios-grid" style="border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0 0 6px 6px; padding: 1rem; background: rgba(5, 7, 10, 0.4);">
+                
+                <!-- Scenario 1 -->
+                <div class="scenario-card">
+                  <div>
+                    <span class="scenario-badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+                      SCENARIO 1 // NORMAL
+                    </span>
+                    <div class="scenario-title">Normal Analysis Request</div>
+                    <div class="scenario-desc">
+                      User: <em>"Scan this email."</em><br/>
+                      ShieldBot proposes: <code>scan.email</code> (read-only).<br/>
+                      Guardian AI: <strong>ALLOW</strong> (matches request & within scope).
+                    </div>
+                  </div>
+                  <button type="button" class="btn-sub-action highlight" id="btn-sim-scenario-1">
+                    Execute Scenario 1 &rarr;
+                  </button>
+                </div>
+
+                <!-- Scenario 2 -->
+                <div class="scenario-card">
+                  <div>
+                    <span class="scenario-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);">
+                      SCENARIO 2 // CONFIRMATION
+                    </span>
+                    <div class="scenario-title">Consequential Action Gate</div>
+                    <div class="scenario-desc">
+                      User: <em>"Delete this suspicious email."</em><br/>
+                      ShieldBot proposes: <code>gmail.delete</code>.<br/>
+                      Guardian AI: <strong>REQUIRE_CONFIRMATION</strong> before external execution.
+                    </div>
+                  </div>
+                  <button type="button" class="btn-sub-action highlight" id="btn-sim-scenario-2">
+                    Execute Scenario 2 &rarr;
+                  </button>
+                </div>
+
+                <!-- Scenario 3 -->
+                <div class="scenario-card" style="border-color: rgba(239, 68, 68, 0.4);">
+                  <div>
+                    <span class="scenario-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.5);">
+                      SCENARIO 3 // MISMATCH
+                    </span>
+                    <div class="scenario-title">Suspicious Behavior Block</div>
+                    <div class="scenario-desc">
+                      User: <em>"Analyze this email."</em><br/>
+                      ShieldBot attempts: <code>delete email</code>.<br/>
+                      Guardian AI: <strong>BLOCK</strong> (Risk 94/100 Intent Mismatch).
+                    </div>
+                  </div>
+                  <button type="button" class="btn-sub-action" id="btn-sim-scenario-3" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fca5a5;">
+                    Simulate Mismatch &rarr;
+                  </button>
+                </div>
+
+                <!-- Scenario 4 -->
+                <div class="scenario-card" style="border-color: rgba(239, 68, 68, 0.4);">
+                  <div>
+                    <span class="scenario-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.5);">
+                      SCENARIO 4 // SCOPE
+                    </span>
+                    <div class="scenario-title">Excessive Access Block</div>
+                    <div class="scenario-desc">
+                      User: <em>"Check this one email."</em><br/>
+                      ShieldBot attempts: <code>Entire Mailbox Scope</code>.<br/>
+                      Guardian AI: <strong>BLOCK</strong> (Excessive Access).
+                    </div>
+                  </div>
+                  <button type="button" class="btn-sub-action" id="btn-sim-scenario-4" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fca5a5;">
+                    Simulate Excessive Scope &rarr;
+                  </button>
+                </div>
+
+                <!-- Scenario 5 -->
+                <div class="scenario-card">
+                  <div>
+                    <span class="scenario-badge" style="background: rgba(239, 68, 68, 0.3); color: #fff; border: 1px solid #ef4444;">
+                      SCENARIO 5 // STOP
+                    </span>
+                    <div class="scenario-title">Operator Emergency Stop</div>
+                    <div class="scenario-desc">
+                      User presses <strong>STOP AGENT</strong>.<br/>
+                      All tasks cancel immediately.<br/>
+                      ShieldBot locked into standby until operator resume.
+                    </div>
+                  </div>
+                  <button type="button" class="btn-sub-action" id="btn-sim-scenario-5" style="border-color: #ef4444; color: #f87171;">
+                    Trigger Emergency Stop &rarr;
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Granular Permissions Matrix Manager -->
+            <div class="soc-card" style="margin-bottom: 1.5rem;" id="guardian-permission-matrix-container">
+              <div class="panel-header-strip">
+                <span class="panel-header-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#00e5ff" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  Granular Agent Permissions Matrix (Least-Privilege Policy Engine)
+                </span>
+                <div style="display: flex; gap: 0.75rem; align-items: center; font-family: var(--font-mono); font-size: 0.68rem;">
+                  <span>ALLOW: <strong id="perm-stat-allow" style="color: #34d399;">0</strong></span>
+                  <span style="color: #475569;">|</span>
+                  <span>ASK: <strong id="perm-stat-ask" style="color: #fbbf24;">0</strong></span>
+                  <span style="color: #475569;">|</span>
+                  <span>DENY: <strong id="perm-stat-deny" style="color: #f87171;">0</strong></span>
+                </div>
+              </div>
+
+              <!-- Filter Bar & Search -->
+              <div class="perm-filter-bar">
+                <div class="perm-search-box">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#94a3b8" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="text" id="perm-matrix-search" placeholder="Search operations (e.g. gmail.read, scan.url, block)..." />
+                </div>
+
+                <div style="display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap;">
+                  <button type="button" class="perm-filter-btn is-active" data-domain="all">All Operations</button>
+                  <button type="button" class="perm-filter-btn" data-domain="gmail">✉️ Gmail</button>
+                  <button type="button" class="perm-filter-btn" data-domain="security">🛡️ Security</button>
+                  <button type="button" class="perm-filter-btn" data-domain="device">📱 Device &amp; SMS</button>
+                  <button type="button" class="perm-filter-btn" data-domain="files">📁 Sandbox Files</button>
+                </div>
+
+                <div style="display: flex; gap: 0.4rem; align-items: center;">
+                  <button type="button" class="btn-sub-action" id="btn-allow-safe-readonly" style="font-size: 0.68rem; padding: 0.25rem 0.5rem;" title="Set all read-only actions to ALLOW">
+                    ✓ Allow Safe Read-Only
+                  </button>
+                  <button type="button" class="btn-sub-action highlight" id="btn-reset-perm-defaults" style="font-size: 0.68rem; padding: 0.25rem 0.5rem;" title="Reset policies to least-privilege defaults">
+                    ↺ Reset Defaults
+                  </button>
+                </div>
+              </div>
+
+              <div style="overflow-x: auto; padding: 0.5rem;">
+                <table class="permissions-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 120px;">Domain</th>
+                      <th style="width: 220px;">Action Operation</th>
+                      <th>Forensic Security Description</th>
+                      <th style="width: 140px;">Impact Level</th>
+                      <th style="width: 250px; text-align: right;">Enforced Policy Switch</th>
+                    </tr>
+                  </thead>
+                  <tbody id="permissions-table-body">
+                    <tr><td colspan="5" style="text-align:center; padding:1.5rem; color:#64748b;">Loading permissions matrix...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Immutable Guardian Security Audit Log Table -->
+            <div class="soc-card">
+              <div class="panel-header-strip">
+                <span class="panel-header-title">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ef4444" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                  Guardian Security Event Audit Log (Zero-Trust Action Trail)
+                </span>
+                <div style="display: flex; gap: 0.4rem; align-items: center;">
+                  <button type="button" class="btn-sub-action" id="btn-refresh-guardian-logs" style="font-size: 0.68rem; padding: 0.2rem 0.5rem;">
+                    🔄 Refresh
+                  </button>
+                </div>
+              </div>
+
+              <!-- Filter Pills -->
+              <div style="padding: 0.75rem 1rem; display: flex; gap: 0.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); flex-wrap: wrap;">
+                <button type="button" class="audit-filter-chip is-active" data-filter="all">All Events</button>
+                <button type="button" class="audit-filter-chip" data-filter="normal">Normal (Allowed)</button>
+                <button type="button" class="audit-filter-chip" data-filter="warnings">Confirmations (Watch)</button>
+                <button type="button" class="audit-filter-chip" data-filter="blocked">Blocked Violations</button>
+                <button type="button" class="audit-filter-chip" data-filter="critical">Critical</button>
+              </div>
+
+              <div style="overflow-x: auto; padding: 0.5rem;">
+                <table class="permissions-table">
+                  <thead>
+                    <tr>
+                      <th>Timestamp</th>
+                      <th>Agent</th>
+                      <th>Action Operation</th>
+                      <th>Target Resource</th>
+                      <th>User Intent</th>
+                      <th>Risk Score</th>
+                      <th>Guardian Verdict</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="guardian-audit-table-body">
+                    <tr><td colspan="8" style="text-align:center; padding:1.5rem; color:#64748b;">Loading audit event stream...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==========================================================================
+         Floating ShieldBot AI Security Agent & Guardian Action Gate Drawer
+         ========================================================================== -->
+    <div class="shieldgpt-floating-drawer is-minimized" id="shieldgpt-drawer" role="dialog" aria-label="ShieldBot Security Agent">
+      
+      <!-- Drawer Header -->
+      <div class="drawer-header">
+        <div class="drawer-title-wrap">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00e5ff" stroke-width="2.2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span class="drawer-title">ShieldBot AI</span>
+          <span class="nav-badge" id="drawer-agent-state-badge" style="background: rgba(0, 229, 255, 0.2); color: #00e5ff; font-size: 0.65rem;">IDLE</span>
+        </div>
+        
+        <div style="display: flex; gap: 0.4rem; align-items: center;">
+          <button type="button" class="btn-emergency-stop" id="btn-drawer-stop-agent" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;" title="Stop ShieldBot actions">
+            🛑 STOP
+          </button>
+          <button type="button" class="bubble-close-btn" id="drawer-close-btn" title="Close Assistant Drawer">✕</button>
+        </div>
+      </div>
+
+      <!-- Dedicated Guardian AI Live Channel Strip -->
+      <div class="guardian-live-strip status-normal" id="drawer-guardian-strip">
+        <span>🛡️ <strong>Guardian AI:</strong> <span id="drawer-guardian-msg">System normal. All operations monitored.</span></span>
+        <span id="drawer-guardian-risk" style="font-size: 0.65rem; font-weight: bold;">Risk: 0/100</span>
+      </div>
+
+      <!-- Quick Context & Controls Strip -->
+      <div class="drawer-context-pill">
+        <span>Context: <strong id="drawer-context-badge">Active SOC Grid</strong></span>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button type="button" style="background:none; border:none; color:#00e5ff; font-size:0.65rem; cursor:pointer;" id="drawer-toggle-timeline-btn">
+            📋 Timeline
+          </button>
+          <button type="button" style="background:none; border:none; color:#38bdf8; font-size:0.65rem; cursor:pointer;" id="drawer-expand-btn">
+            Full View &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Intent Action Chips -->
+      <div class="agent-intent-chips-bar">
+        <button type="button" class="agent-intent-chip" data-intent="Hello, what is your name?">👋 Hello, What is your name?</button>
+        <button type="button" class="agent-intent-chip" data-intent="How to access my message on phone and laptop?">📱 Access Messages (Phone &amp; Laptop)</button>
+        <button type="button" class="agent-intent-chip" data-intent="Scan this email">📧 Scan Email</button>
+        <button type="button" class="agent-intent-chip consequential" data-intent="Delete this suspicious email">🗑️ Delete Email (Consequential)</button>
+        <button type="button" class="agent-intent-chip" data-intent="Check connected Gmail">🌐 Check Gmail</button>
+        <button type="button" class="agent-intent-chip" data-intent="Explain this threat">❓ Explain Threat</button>
+        <button type="button" class="agent-intent-chip test-alert" data-forced="force_delete_mismatch" data-intent="Analyze this email">⚠️ Test Mismatch Block</button>
+        <button type="button" class="agent-intent-chip test-alert" data-forced="force_excessive_scope" data-intent="Check this one email">⚠️ Test Excessive Scope</button>
+      </div>
+
+      <!-- Collapsible Agent Action Timeline Panel -->
+      <div id="drawer-timeline-container" class="agent-timeline-wrapper" style="display: none;">
+        <div style="font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: #94a3b8; margin-bottom: 0.4rem; display: flex; justify-content: space-between;">
+          <span>SHIELDBOT ACTIVITY TIMELINE</span>
+          <span style="color: #00e5ff;">LIVE</span>
+        </div>
+        <div id="drawer-timeline-steps-list"></div>
+      </div>
+
+      <!-- Consequential Action Confirmation Preview Container -->
+      <div id="drawer-action-preview-container" style="display: none; padding: 0.6rem 0.8rem; background: rgba(5,7,10,0.9); border-bottom: 1px solid rgba(245, 158, 11, 0.4);">
+        <!-- Injected dynamically by agent action gate -->
+      </div>
+
+      <!-- Two-AI Chat Messages Stream -->
+      <div class="drawer-messages-stream" id="drawer-messages-stream">
+        <div class="chat-bubble bot shieldbot">
+          <strong>🤖 ShieldBot AI:</strong> "Online and ready! Ask me to inspect an email, analyze a link, summarize threats, or take action with your permission."
+        </div>
+        <div class="chat-bubble bot guardian">
+          <div class="guardian-badge-tag normal">🛡️ Guardian AI // Zero-Trust Gate</div>
+          <div>All proposed ShieldBot operations are actively monitored. Consequential actions will require your explicit authorization before execution.</div>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <div class="drawer-input-bar">
+        <input type="text" id="drawer-input" placeholder="Ask ShieldBot... (e.g. Scan this email, or Delete this threat)" />
+        <button type="button" class="btn-drawer-voice" id="drawer-voice-btn" title="Voice Input (Speech to Text)">🎤</button>
+        <button type="button" class="btn-drawer-send" id="drawer-send-btn">➤</button>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         Cyber SOC Authentication Gateway // Login & Account Creation
+         ========================================================================== -->
+    <div id="auth-overlay" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="auth-terminal-title">
+      <div class="auth-backdrop" aria-hidden="true"></div>
+      
+      <div class="auth-terminal-window">
+        <div class="auth-terminal-header">
+          <div class="auth-terminal-branding">
+            <div class="auth-brand-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <div>
+              <h2 id="auth-terminal-title">AI-SPAM<span>SHIELD</span> // ACCESS GATEWAY</h2>
+              <div class="auth-terminal-subtitle">OPERATOR BIOMETRIC & CREDENTIAL CHECKPOINT</div>
+            </div>
+          </div>
+          <div class="auth-security-status">
+            <span class="pulse-point"></span>
+            <span>SECURE VAULT</span>
+          </div>
+        </div>
+
+        <div class="auth-tab-bar" role="tablist">
+          <button type="button" role="tab" class="auth-tab-btn is-active" id="tab-login-btn" aria-selected="true">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span>OPERATOR SIGN-IN</span>
+          </button>
+          <button type="button" role="tab" class="auth-tab-btn" id="tab-register-btn" aria-selected="false">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            <span>CREATE ACCOUNT</span>
+          </button>
+        </div>
+
+        <!-- LOGIN PANE -->
+        <div class="auth-pane is-active" id="pane-login" role="tabpanel">
+          <div class="auth-callout">
+            <div class="auth-callout-icon">⚡</div>
+            <div class="auth-callout-text">
+              <strong>Pre-Configured Operator Clearance:</strong>
+              Name: <code class="auth-code">tharani</code> &bull; Passcode: <code class="auth-code">12345</code>
+            </div>
+            <button type="button" class="btn-quick-fill" id="btn-quick-fill" title="Auto-fill default credentials">
+              [ ⚡ AUTO-FILL ]
+            </button>
+          </div>
+
+          <form id="login-form" class="auth-form" novalidate>
+            <div class="auth-field-group">
+              <label for="login-username" class="auth-label">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                OPERATOR IDENTIFIER / USERNAME
+              </label>
+              <input 
+                type="text" 
+                id="login-username" 
+                class="auth-input" 
+                placeholder="e.g. tharani" 
+                value="tharani"
+                required 
+                autocomplete="username"
+              />
+            </div>
+
+            <div class="auth-field-group">
+              <label for="login-password" class="auth-label">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                SECURITY PASSCODE
+              </label>
+              <div class="auth-input-wrap">
+                <input 
+                  type="password" 
+                  id="login-password" 
+                  class="auth-input" 
+                  placeholder="Enter passcode (e.g. 12345)" 
+                  value="12345"
+                  required 
+                  autocomplete="current-password"
+                />
+                <button type="button" class="btn-toggle-pass" id="toggle-login-pass" title="Show or hide passcode">
+                  <svg class="icon-eye" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="auth-alert" id="login-alert" role="alert" style="display: none;"></div>
+
+            <button type="submit" class="btn-auth-submit" id="btn-login-submit">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                <polyline points="10 17 15 12 10 7"></polyline>
+                <line x1="15" y1="12" x2="3" y2="12"></line>
+              </svg>
+              <span>AUTHENTICATE & ENTER MAIN SOC</span>
+            </button>
+
+            <div class="auth-footer-prompt">
+              <span>Need a new operator clearance badge?</span>
+              <button type="button" class="auth-switch-link" id="link-goto-register">
+                Create new operator account &rarr;
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- REGISTER PANE -->
+        <div class="auth-pane" id="pane-register" role="tabpanel">
+          <form id="register-form" class="auth-form" novalidate>
+            <div class="auth-form-grid">
+              <div class="auth-field-group">
+                <label for="reg-name" class="auth-label">FULL OPERATOR NAME</label>
+                <input type="text" id="reg-name" class="auth-input" placeholder="e.g. Tharani Karthik" required />
+              </div>
+
+              <div class="auth-field-group">
+                <label for="reg-username" class="auth-label">CHOSEN OPERATOR ID</label>
+                <input type="text" id="reg-username" class="auth-input" placeholder="e.g. tharani02" required />
+              </div>
+
+              <div class="auth-field-group">
+                <label for="reg-password" class="auth-label">SECURITY PASSCODE</label>
+                <input type="password" id="reg-password" class="auth-input" placeholder="Min 4 characters" required minlength="4" />
+              </div>
+
+              <div class="auth-field-group">
+                <label for="reg-confirm" class="auth-label">CONFIRM PASSCODE</label>
+                <input type="password" id="reg-confirm" class="auth-input" placeholder="Repeat passcode" required minlength="4" />
+              </div>
+            </div>
+
+            <div class="auth-alert" id="register-alert" role="alert" style="display: none;"></div>
+
+            <button type="submit" class="btn-auth-submit" id="btn-register-submit">
+              <span>INITIALIZE OPERATOR RECORD</span>
+            </button>
+
+            <div class="auth-footer-prompt">
+              <span>Already hold clearance?</span>
+              <button type="button" class="auth-switch-link" id="link-goto-login">
+                &larr; Switch to Operator Login
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="auth-terminal-foot">
+          <div class="auth-foot-item">
+            <span class="auth-dot online"></span>
+            NODE: SPAMSHIELD-CENTRAL-01
+          </div>
+          <div class="auth-foot-item">
+            SHIELD AI: SYNCHRONIZED
+          </div>
+          <div class="auth-foot-item">
+            DATABASE: LOCAL SQLITE / JSON
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Phone & Laptop Device Pairing Modal -->
+    <div id="device-pair-modal" class="auth-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="pair-modal-title">
+      <div class="auth-backdrop" id="pair-modal-backdrop"></div>
+      <div class="auth-terminal-window" style="max-width: 440px;">
+        <div class="auth-terminal-header">
+          <div class="auth-terminal-branding">
+            <div class="auth-brand-badge" style="background: rgba(56, 189, 248, 0.15); border-color: #38bdf8; color: #38bdf8;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <div>
+              <h2 id="pair-modal-title">PHONE &amp; LAPTOP SYNC</h2>
+              <div class="auth-terminal-subtitle">CROSS-DEVICE MESSAGE INGESTION BRIDGE</div>
+            </div>
+          </div>
+          <button type="button" class="bubble-close-btn" id="btn-close-pair-modal" style="font-size: 1.1rem;">✕</button>
+        </div>
+
+        <div style="padding: 1.5rem; text-align: center;">
+          <div style="background: #fff; padding: 1rem; border-radius: 8px; display: inline-block; margin-bottom: 1rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+            <!-- High-contrast SVG QR Code -->
+            <svg viewBox="0 0 100 100" width="160" height="160" shape-rendering="crispEdges">
+              <rect width="100" height="100" fill="#ffffff"/>
+              <!-- Corner Finder 1 -->
+              <rect x="5" y="5" width="30" height="30" fill="#000000"/>
+              <rect x="10" y="10" width="20" height="20" fill="#ffffff"/>
+              <rect x="15" y="15" width="10" height="10" fill="#000000"/>
+              <!-- Corner Finder 2 -->
+              <rect x="65" y="5" width="30" height="30" fill="#000000"/>
+              <rect x="70" y="10" width="20" height="20" fill="#ffffff"/>
+              <rect x="75" y="15" width="10" height="10" fill="#000000"/>
+              <!-- Corner Finder 3 -->
+              <rect x="5" y="65" width="30" height="30" fill="#000000"/>
+              <rect x="10" y="70" width="20" height="20" fill="#ffffff"/>
+              <rect x="15" y="75" width="10" height="10" fill="#000000"/>
+              <!-- Data patterns -->
+              <rect x="42" y="8" width="6" height="6" fill="#000000"/>
+              <rect x="52" y="18" width="6" height="6" fill="#000000"/>
+              <rect x="42" y="28" width="6" height="6" fill="#000000"/>
+              <rect x="45" y="45" width="10" height="10" fill="#00e5ff"/>
+              <rect x="65" y="45" width="6" height="6" fill="#000000"/>
+              <rect x="75" y="55" width="6" height="6" fill="#000000"/>
+              <rect x="85" y="65" width="6" height="6" fill="#000000"/>
+              <rect x="42" y="68" width="6" height="6" fill="#000000"/>
+              <rect x="55" y="78" width="6" height="6" fill="#000000"/>
+              <rect x="68" y="88" width="6" height="6" fill="#000000"/>
+            </svg>
+          </div>
+
+          <div style="font-size: 0.82rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.35rem;">
+            Scan with your Phone Camera or Mobile Browser
+          </div>
+          <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 1rem; line-height: 1.4;">
+            Instantly pairs your smartphone SMS stream with this laptop SOC workstation.
+          </div>
+
+          <div style="background: rgba(15, 23, 42, 0.8); border: 1px dashed rgba(56, 189, 248, 0.4); border-radius: 6px; padding: 0.6rem; font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8; margin-bottom: 1rem;">
+            SYNC PAIRING PIN: <strong style="color: #fff; letter-spacing: 0.15em;">SHIELD-8941</strong>
+          </div>
+
+          <button type="button" class="btn-sub-action highlight" id="btn-confirm-phone-paired" style="width: 100%; padding: 0.6rem;">
+            ✓ Confirm Phone Connected
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         Shield AI 🤖 - Movable Security Agent Character
+         ========================================================================== -->
+    <div id="shieldbot-container"></div>
+
+    <!-- Main Application Scripts -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

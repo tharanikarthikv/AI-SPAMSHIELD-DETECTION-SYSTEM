@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "ai-spamshield",
+  "displayName": "AI-SPAMSHIELD Autonomous Cyber Threat Suite",
+  "version": "1.0.0",
+  "agent": {
+    "model": "antigravity-preview-09-2026",
+    "type": "autonomous-software-engineering",
+    "capabilities": [
+      "code-execution",
+      "threat-forensics",
+      "network-inspection",
+      "file-management",
+      "automated-scanning"
+    ]
+  },
+  "runtime": {
+    "engine": "node22",
+    "port": 3000,
+    "entrypoint": "tsx server.ts",
+    "build": "npm run build",
+    "install": "npm install",
+    "healthcheck": "http://localhost:3000/api/health"
+  },
+  "environmentVariables": {
+    "PORT": "3000",
+    "NODE_ENV": "development",
+    "GEMINI_API_KEY": "${GEMINI_API_KEY}"
+  },
+  "endpoints": {
+    "health": "/api/health",
+    "permissions": "/api/permissions",
+    "stats": "/api/stats",
+    "threatAnalyzeSms": "/api/analyze/sms",
+    "threatAnalyzeEmail": "/api/analyze/email",
+    "threatAnalyzeUrl": "/api/analyze/url",
+    "agentChat": "/api/agent/chat",
+    "exportZip": "/api/export/zip"
+  }
+}

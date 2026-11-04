@@ -1,0 +1,52 @@
+# AI-SPAMSHIELD Cursor Rules & Architecture Spec
+
+You are working in the AI-SPAMSHIELD repository, a production-grade multi-channel cybersecurity detection suite and AI threat analysis engine.
+
+## Tech Stack Overview
+- **Runtime**: Node.js >= 20.x, TypeScript (ESM)
+- **Frontend**: React 19, Vite 8, Tailwind CSS v4, Lucide React, Recharts / Chart.js
+- **Backend**: Express 4.x mounted via Vite middleware in dev (`tsx server.ts`)
+- **AI & Threat Intelligence**: `@google/genai` (Gemini 2.5/3.8 Flash, Interactions API, Antigravity Agent runtime), Shannon Entropy calculation, cross-reference domain heurism
+- **Port**: Always runs on `http://localhost:3000` (port 3000)
+
+## Common Commands
+```bash
+# Install dependencies
+npm install
+
+# Start development server (both Express API and Vite client on port 3000)
+npm run dev
+
+# Compile TypeScript type check
+npm run lint
+
+# Production build
+npm run build
+
+# Start production server
+npm start
+```
+
+## Architecture & Code Conventions
+1. **Fullstack Architecture**:
+   - `server.ts` is the single entry point for Express and Vite middleware in development.
+   - All backend API routes must be prefixed with `/api/*` (e.g., `/api/analyze/*`, `/api/health`, `/api/agent/*`, `/api/export/zip`).
+   - Never mount Express inside `vite.config.ts`. Express mounts Vite via `app.use(vite.middlewares)`.
+
+2. **Styling & UI**:
+   - Tailwind CSS v4 is used via `@import "tailwindcss";` in `src/index.css`.
+   - Dark cybersecurity aesthetic with slate/zinc neutral tones, glowing cyan/emerald/rose accents, high-contrast typography, and accessible status colors.
+   - Lucide React for consistent icons.
+
+3. **Threat Detection & Heuristics**:
+   - `src/threatIntelligence.ts`: Core threat scoring, Shannon entropy calculation, homograph attack detection, and threat intel lookup.
+   - `src/services/agentService.ts`: Autonomous cybersecurity agent state machine with timeline, guardian risk checks, and personality modes.
+   - `src/documentScanner.ts`: Forensic document and payload scanner.
+
+4. **Environment Variables**:
+   - Server-side secrets (e.g. `GEMINI_API_KEY`) are accessed via `process.env`.
+   - Never expose raw API keys to client-side code; use server-side proxy routes (`/api/*`).
+
+5. **Antigravity & Autonomous Agents**:
+   - Compatible with Google Antigravity Agent (`antigravity-preview-09-2026`).
+   - Configured via `antigravity.config.json` and `.agent/config.json`.

@@ -1,0 +1,6 @@
+{
+  "name": "AI-SPAMSHIELD",
+  "description": "Unified multi-channel cybersecurity detection system for SMS, email phishing, malicious URLs, scams, and fraudulent ads with automated real-time scanning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
